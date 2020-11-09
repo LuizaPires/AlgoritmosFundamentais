@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="descrição:" content="Cálculos matemáticos básicos">
+    <meta name="autora:" content="Luiza Pires Gonzalez">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topo">
+        <p class="data">
+            Você atualizou essa página: <%= new Date(); %>
+        </p>
+        <h1>
+            <%= titulo %>
+        </h1>
+        <p class="autoria"> Por Luiza Pires Gonzalez</p>
+        <div class="cabecalho">
+            <div class="einstein">
+                <img class="einsteinImg" src="img/einstein.png" alt="desenho de Einstein">
+            </div>
+            <div class="comentarios">
+                <p class="comentario">Escolha a função que deseja utilizar</p>
+            </div>
+            <div class="home">
+                <div class="homeInt">
+                    <a href="/">
+                        <p>HOME</p>
+                    </a>
+                </div>
+            </div>
+            <div class="contagem">
+                <div class="contagemInt">
+                    <a href="contagem">
+                        <p>CONTAGEM</p>
+                    </a>
+                </div>
+            </div>
+            <div class="fibonacci">
+                <div class="fibonacciInt">
+                    <a href="fibonacci">
+                        <p>FIBONACCI</p>
+                    </a>
+                </div>
+            </div>
+            <div class="maxdivcomum">
+                <div class="maxdivcomumInt">
+                    <a href="mdc">
+                        <p>MDC</p>
+                    </a>
+                </div>
+            </div>
+            <div class="primos">
+                <div class="primosInt">
+                    <a href="primos">
+                        <p>NÚM. PRIMOS</p>
+                    </a>
+                </div>
+            </div>
+            <div class="somatorio">
+                <div class="somatorioInt">
+                    <a href="somatorio">
+                        <p>SOMATÓRIO</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="borda"></div>
+
+    <div class="apresentacao">
+        <div class="apres">
+            <div class="form">
+                <p class="formulariocab">
+                    Exercício de Ordenação QuickSort:
+                </p>
+                <p class="formulario">
+                    Ordenar um array usando o
+                </p>
+                <p class="formulario">
+                    método Quicksort.
+                </p>
+                <p class="formularioQ">
+                    Informe os números para ordenar.
+                </p>
+                <form method="POST" action="/ordenada" autocomplete="off">
+                    <input name="s" type="text" />
+                    <input name="t" type="text" />
+                    <input name="u" type="text" />
+                    <input name="v" type="text" />
+                    <input name="x" type="text" />
+                    <input name="z" type="text" />
+                    </br>
+                    <button type="submit">Enviar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
