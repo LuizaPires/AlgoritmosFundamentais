@@ -1,17 +1,20 @@
-function fibonacci(n) {
-	var t1 = 0, t2 = 1, nt;
-	if (n == 0) {
-		nt = '0';
+function fibonacci(posicao) {
+	var termo1 = 0, termo2 = 1, posicaotermo;
+	if (posicao <= 0) {
+		posicaotermo = "Por favor, insira um número acima de zero";
 	}
-	if (n == 1) {
-		nt = '1';
+	if (posicao == 1) {
+		posicaotermo = '0';
 	}
-	for (var i = 2; i < n; i++) {
-		nt = t1 + t2;
-		t1 = t2;
-		t2 = nt;
+	if (posicao == 2) {
+		posicaotermo = '1';
 	}
-	return nt;
+	for (var i = 2; i < posicao; i++) {
+		posicaotermo = termo1 + termo2;
+		termo1 = termo2;
+		termo2 = posicaotermo;
+	}
+	return posicaotermo;
 }
 
 module.exports = {

@@ -84,7 +84,7 @@ a:hover {
 a:active {
     text-decoration: none;
     color: white;
- }
+}
 
 .einstein {
     width: 13%;
@@ -169,13 +169,10 @@ form {
 }
 .formulariocab {
     font-size: 120%;
-    margin: 15px;
     border-radius: 5px;
     box-shadow: inset 2px 2px 2px #eaeaca;
     padding: 10px;
     color: #056386;
-    background-color: white;
-    background-image: url(caderno.png);
     text-shadow: 1px 1px 1px #eaeaca;
 }
 .formularioQ {
@@ -218,7 +215,7 @@ button {
     font-size: 170%;
     text-align: center;
     background-image: radial-gradient(circle, #ffffff70, #f9f9dac7);
-    padding: 20px 20px;
+    padding: 0px 20px 20px 20px;
     box-shadow: 1px 1px 4px #dcdca9;
     color: #077da8;
     line-height: 120%;
@@ -267,5 +264,3 @@ button {
 .einstein2Imagem {
     height: 215px;
 }
-
-

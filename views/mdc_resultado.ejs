@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="site.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="descrição:" content="Resultado do MDC">
-    <meta name="autora:" content="Luiza Pires Gonzalez">
-    <title>Document</title>
+    <title>MDC</title>
 </head>
 
 <body>
@@ -28,13 +27,13 @@
                     Informe 2 números para mostrar o MDC entre eles.
                 </p>
                 <form method="POST" action="/mdc" autocomplete="off">
-                    <input name="n1" type="text" />
-                    <input name="n2" type="text" />
+                    <input name="num1" type="text" />
+                    <input name="num2" type="text" />
                     <button type="submit">Enviar</button>
                 </form>
             </div>
             <p class="resultado">
-                O <%= operacao %> de (<%= n1 %>) e (<%= n2 %>) é : <%= mdc_resultado %>
+                O <%= operacao %> de (<%= num1 %>) e (<%= num2 %>) é : <%= mdc_resultado %>
             </p>
 
         </div>
@@ -42,7 +41,7 @@
     <div class="tratamento"></div>
     <div class="voltar">
         <div class="einstein2">
-        <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
+            <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
         </div>
 
     </div>

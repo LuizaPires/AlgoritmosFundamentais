@@ -1,33 +1,32 @@
-var express = require('express'); //importar o express
-var bodyParser = require('body-parser'); //importar o body-parser
-var path = require('path'); //importar lib path (nativa do node.js)
-var cont = require('./contagem'); //importar modulo (contagem.js)
-var fib = require('./fibonacci'); //importar modulo (fibonacci.js)
-var max = require('./mdc'); //importar modulo (mdc.js)
-var ord = require('./ordenada'); //importar módulo (ordenada.js)
-var prim = require('./primos'); //importar modulo (primos.js)
-var somat = require('./somatorio'); //importar modulo (somatorio.js)
+var express = require('express');
+var bodyParser = require('body-parser');
+var path = require('path');
+var cont = require('./contagem');
+var fib = require('./fibonacci');
+var max = require('./mdc');
+var ord = require('./ordenada');
+var prim = require('./primos');
+var somat = require('./somatorio');
 
 
 const { get } = require('https');
 const { networkInterfaces } = require('os');
 
-var app = express(); // criar um app do express
+var app = express();
 
 //configura os dados oriundos da requisição http
 app.use(bodyParser.urlencoded({ extended: true }));
-//configura o caminho para arquivos estáticos (img, css, html, js...) 
-app.use(express.static('public')); //http://<host>:<port>/imagens/foto.jpg
+
+app.use(express.static('public'));
 app.use(express.static('public/css'));
 app.use(express.static('public/img'));
 
-app.set('view engine', 'ejs'); //setar o motor de vieww que será usado
-app.set('views', path.join(__dirname, '/views')); //caminho da pasta views
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 app.get('/', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('index', parametro);
 });
@@ -35,7 +34,6 @@ app.get('/', function (req, res) {
 app.get('/contagem', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('contagem', parametro);
 });
@@ -43,7 +41,6 @@ app.get('/contagem', function (req, res) {
 app.get('/fibonacci', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('fibonacci', parametro);
 });
@@ -51,7 +48,6 @@ app.get('/fibonacci', function (req, res) {
 app.get('/mdc', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('mdc', parametro);
 });
@@ -59,7 +55,6 @@ app.get('/mdc', function (req, res) {
 app.get('/ordenada', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('ordenada', parametro);
 });
@@ -67,7 +62,6 @@ app.get('/ordenada', function (req, res) {
 app.get('/primos', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('primos', parametro);
 });
@@ -75,7 +69,6 @@ app.get('/primos', function (req, res) {
 app.get('/somatorio', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        //data: Date.now(),
     };
     res.render('somatorio', parametro);
 });
@@ -95,25 +88,24 @@ app.post('/contagem', function (req, res) {
 
 app.post('/fibonacci', function (req, res) {
     var body = req.body;
-    var n = parseFloat(body.n);
-    var fibonacci_resultado = fib.fibonacci(n);
+    var posicao = parseFloat(body.posicao);
+    var fibonacci_resultado = fib.fibonacci(posicao);
     res.render('fibonacci_resultado', {
         operacao: 'fibonacci',
-        n: n,
-
+        posicao: posicao,
         fibonacci_resultado: fibonacci_resultado
     });
 });
 
 app.post('/mdc', function (req, res) {
     var body = req.body;
-    var n1 = parseFloat(body.n1);
-    var n2 = parseFloat(body.n2);
-    var mdc_resultado = max.mdc(n1, n2);
+    var num1 = parseFloat(body.num1);
+    var num2 = parseFloat(body.num2);
+    var mdc_resultado = max.mdc(num1, num2);
     res.render('mdc_resultado', {
         operacao: 'mdc',
-        n1: n1,
-        n2: n2,
+        num1: num1,
+        num2: num2,
         mdc_resultado: mdc_resultado
     });
 });
@@ -141,11 +133,11 @@ app.post('/ordenada', function (req, res) {
 
 app.post('/primos', function (req, res) {
     var body = req.body;
-    var n = parseFloat(body.n);
-    var primos_resultado = prim.primos(n);
+    var num = parseFloat(body.num);
+    var primos_resultado = prim.primos(num);
     res.render('primos_resultado', {
         operacao: 'primos',
-        n: n,
+        num: num,
         primos_resultado: primos_resultado
     });
 });
@@ -167,7 +159,6 @@ app.post('/somatorio', function (req, res) {
 
 var port = 3001;
 
-// iniciando o processo do servidor
 app.listen(port, function () {
     console.log(`App de Exemplo escutando na porta http://localhost:${port}/`);
 });

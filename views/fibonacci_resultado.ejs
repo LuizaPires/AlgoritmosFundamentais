@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="site.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="descrição:" content="Resultado da Fibonacci">
-    <meta name="autora:" content="Luiza Pires Gonzalez">
-    <title>Document</title>
+    <title>Fibonacci</title>
 </head>
 
 <body>
@@ -28,12 +27,12 @@
                     Informe a posição para mostrar a Fibonacci.
                 </p>
                 <form method="POST" action="/fibonacci" autocomplete="off">
-                    <input name="n" type="text" />
+                    <input name="posicao" type="text" />
                     <button type="submit">Enviar</button>
                 </form>
             </div>
             <p class="resultado">
-                Mostrando o termo <%= operacao %> para a posição solicitada (<%= n %>): <%= fibonacci_resultado %>
+                Mostrando o termo <%= operacao %> para a posição solicitada (<%= posicao %>): <%= fibonacci_resultado %>
             </p>
 
         </div>
@@ -41,7 +40,7 @@
     <div class="tratamento"></div>
     <div class="voltar">
         <div class="einstein2">
-        <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
+            <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
         </div>
 
     </div>
