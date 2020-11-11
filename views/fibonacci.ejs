@@ -2,12 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="site.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="descrição:" content="Mostra Fibonacci">
+    <%- include('./head'); %>
     <title>Fibonacci</title>
 </head>
 
@@ -19,7 +14,7 @@
         <h1>
             <%= titulo %>
         </h1>
-        <p class="autoria"> Por Luiza Pires | Kevin Guedes | Sofia Oliveira | Camila Alves | Guilherme Federico</p>
+        <%- include('./autoria'); %>
         <div class="cabecalho">
             <div class="einstein">
                 <img class="einsteinImg" src="img/einstein.png" alt="desenho de Einstein">
