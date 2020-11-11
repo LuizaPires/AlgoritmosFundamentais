@@ -259,8 +259,51 @@ button {
     background-image: url(img/einstein2.png);
     background-repeat: no-repeat;
     padding: 0px 50px;
-  
 }
 .einstein2Imagem {
     height: 215px;
 }
+
+@media screen and (max-width: 1100px) {
+    .home, .cabecalho, .einstein, .comentarios, .contagem, .fibonacci, .maxdivcomum, .ordenacao, .primos,
+    .somatorio, .homeInt, .contagemInt, .fibonacciInt, .maxdivcomumInt, .ordenacaoInt, .primosInt, 
+    .somatorioInt, .destaque1 { 
+        width: 100%;
+        float: none;
+        font-size: 1em; 
+        text-align: center;
+        margin: 0px 0px;
+    }
+    p.comentario, .autoria {
+    padding: 0px 0px 10px 0px;
+    }
+    h1 {
+        font-size: 1.8em;
+        padding: 10px 0px;
+    }
+    .apres {
+        max-width: 80%;
+        left: 10%;
+    }
+    .formulariocab {
+        box-shadow: none;
+        border-radius: 5px;
+        padding: 10px;
+        color: #056386;
+        text-shadow: none;
+    }
+    .formularioQ {
+        padding-top: 20px;
+        font-size: 1.2em;
+        color: #056386;
+        text-shadow: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    input[type="text"] {
+        width: 95%;
+        margin: 5px 0px;
+    }
+}
+
