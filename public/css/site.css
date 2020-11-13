@@ -46,6 +46,7 @@ html {
     background-image: url(img/caderno.png);
 }
 
+/*------------cabeçalho------------*/
 .topo {
     background-color: #f9f9da;
     border-bottom: solid 1px #077da8;
@@ -59,16 +60,17 @@ h1 {
     color: #077da8;
     margin: 0px 30px;
 }
+h2 {
+    font-size: 1.2em;
+}
 .autoria {
     text-align: center;
     padding: 4px 10px 0px 0px;
 }
-
 .cabecalho {
     width: 100%;
     min-height: 145px;
 }
-
 a:link {
     text-decoration: none;
     color: white;
@@ -85,36 +87,24 @@ a:active {
     text-decoration: none;
     color: white;
 }
-
 .einstein {
     width: 13%;
     margin: 0px 30px;
     float: left; 
 }
-
 p.comentario {
     padding: 55px 0px 25px 0px;
     color: #1a8214;
 }
-
 .borda {
     padding: 15px;
     background-image: linear-gradient(180deg, #dcdca9 30%, #f9f9da, #f9f9da57);
 }
-
 .home, .contagem, .fibonacci, .maxdivcomum, .ordenacao, .primos, .somatorio {
     font-family: Permanent Marker;
-    width: 13%;
+    width: 11%;
     float: left;
 }
-
-.voltar {
-    max-width: 70%;
-    position: relative;
-    left: 15%;
-    right: 15%;
-}
-
 .homeInt, .contagemInt, .fibonacciInt, .maxdivcomumInt, .ordenacaoInt, .primosInt, .somatorioInt {
     background-image: radial-gradient(circle, #12b0ea, #077da8);
     font-family: Permanent Marker;
@@ -128,25 +118,6 @@ p.comentario {
     box-shadow: 1px 1px 2px #077da8;
     text-shadow: 1px 1px 1px #0c6e71;
 }
-
-.volta {
-    max-width: 90%;
-    text-align: center;
-    font-family: 'Permanent Marker';
-    font-size: 110%;
-    float: left;
-    margin: 54px 0px;
-    position: relative;
-    left: 30%;
-    background-color: #077da8;
-    background-image: radial-gradient(circle, #12b0ea, #077da8);
-    padding: 26px 20px;
-    border-radius: 16%;
-    border: solid 2px beige;
-    box-shadow: 1px 1px 2px #077da8;
-    text-shadow: 1px 1px 1px #0c6e71;
-}
-
 .homeInt:hover, .contagemInt:hover, .fibonacciInt:hover, .maxdivcomumInt:hover, .ordenacaoInt:hover, .primosInt:hover, .somatorioInt:hover, .volta:hover {
     background-image: radial-gradient(circle, #bafd7b, #07a816);
     box-shadow: 1px 1px 5px #1fa807;
@@ -158,7 +129,7 @@ p.comentario {
     color: #0c6e71;
     text-align: center;
 }
-
+/*------------main frame------------*/
 form {
     margin: 10px 0px;
     background-color: #077da8;
@@ -170,7 +141,6 @@ form {
 .formulariocab {
     font-size: 120%;
     border-radius: 5px;
-    box-shadow: inset 2px 2px 2px #eaeaca;
     padding: 10px;
     color: #056386;
     text-shadow: 1px 1px 1px #eaeaca;
@@ -180,7 +150,6 @@ form {
     font-size: 125%;
     text-shadow: 1px 1px 2px rgb(138, 138, 92);
 }
-
 input[type="text"] {
     font-size: 16px;
     color: #0c6e71;
@@ -191,7 +160,6 @@ input[type="text"] {
     border-color: #dedebf;
     font-weight: 600;
 }
-
 button {
     background-color: #f9f9dab0;
     padding: 7px;
@@ -203,7 +171,6 @@ button {
     text-shadow: 1px 1px 1px aliceblue;
     border-radius: 5px;
 }
-
 .apresentacao {
     max-width: 100%;
 }
@@ -240,28 +207,45 @@ button {
     box-shadow: 2px 2px 2px #00000066;
     border-radius: 5px;
 }
-.tratamento {
-    margin-top: 40px;
+/* ---------------footer-------------------*/
+.footer {
+    background-color: #077da8;
+    height: 220px;
+    font-size: 1.5em;
+    color: #f9f9da;
+    border-top: solid 1px #f9f9da;
+    box-shadow: 1px -1px 4px #989840;
 }
-
-.einstein2 {
-    background: linear-gradient(90deg, #077da8 13%,beige 0%, beige 8%, #ffffffb5 40%);
-    border-radius: 10px;
-    border: solid 2px #077da8;
-    box-shadow: 1px 1px 4px #dcdca9;
+.bloco-footer {
+    margin-left: 170px;
+    margin-right: 170px;
+}
+.left-footer {
+    margin-top: 10px;
+    width: 60%;
+    float: left;
+}
+.right-footer {
+    margin-top: 10px;
+    width: 40%;
+    float: left;
+}
+.pessoal {
+    margin-top: 10px;
+    float: left;
+}
+.luiza, .kevin, .sofia, .camila, .guilherme {
+    margin: 15px 15px 5px 15px;
+    border-radius: 50%;
+    width: 100px;
+    border: solid 3px #f9f9da;
+}
+.luiza:hover, .kevin:hover, .sofia:hover, .camila:hover, .guilherme:hover {
+    box-shadow: 0px 0px 10px white;
+}
+#nome {
+    font-size: 0.8em;
     text-align: center;
-    font-family: 'Permanent Marker';
-    font-size: 140%;
-    margin: 12px;
-    color: #042d3c;
-    height: 215px;
-    background-color: beige;
-    background-image: url(img/einstein2.png);
-    background-repeat: no-repeat;
-    padding: 0px 50px;
-}
-.einstein2Imagem {
-    height: 215px;
 }
 
 @media screen and (max-width: 1100px) {

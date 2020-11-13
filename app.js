@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var expressLayouts = require('express-ejs-layouts');
 var cont = require('./contagem');
 var fib = require('./fibonacci');
 var max = require('./mdc');
@@ -17,6 +18,8 @@ var app = express();
 //configura os dados oriundos da requisição http
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(expressLayouts);
+
 app.use(express.static('public'));
 app.use(express.static('public/css'));
 app.use(express.static('public/img'));
@@ -27,6 +30,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.get('/', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: '',
     };
     res.render('index', parametro);
 });
@@ -34,6 +38,7 @@ app.get('/', function (req, res) {
 app.get('/contagem', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Contagem',
     };
     res.render('contagem', parametro);
 });
@@ -41,6 +46,7 @@ app.get('/contagem', function (req, res) {
 app.get('/fibonacci', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Fibonacci',
     };
     res.render('fibonacci', parametro);
 });
@@ -48,6 +54,7 @@ app.get('/fibonacci', function (req, res) {
 app.get('/mdc', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de MDC',
     };
     res.render('mdc', parametro);
 });
@@ -55,6 +62,7 @@ app.get('/mdc', function (req, res) {
 app.get('/ordenada', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Ordenação',
     };
     res.render('ordenada', parametro);
 });
@@ -62,6 +70,7 @@ app.get('/ordenada', function (req, res) {
 app.get('/primos', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Números Primos',
     };
     res.render('primos', parametro);
 });
@@ -69,6 +78,7 @@ app.get('/primos', function (req, res) {
 app.get('/somatorio', function (req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Somatório',
     };
     res.render('somatorio', parametro);
 });
@@ -79,6 +89,8 @@ app.post('/contagem', function (req, res) {
     var numf = parseFloat(body.numf);
     var contagem_resultado = cont.contagem(numi, numf);
     res.render('contagem_resultado', {
+        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Contagem',
         operacao: 'contagem',
         numi: numi,
         numf: numf,
@@ -91,6 +103,8 @@ app.post('/fibonacci', function (req, res) {
     var posicao = parseFloat(body.posicao);
     var fibonacci_resultado = fib.fibonacci(posicao);
     res.render('fibonacci_resultado', {
+        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Fibonacci',
         operacao: 'fibonacci',
         posicao: posicao,
         fibonacci_resultado: fibonacci_resultado
@@ -103,6 +117,8 @@ app.post('/mdc', function (req, res) {
     var num2 = parseFloat(body.num2);
     var mdc_resultado = max.mdc(num1, num2);
     res.render('mdc_resultado', {
+        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de MDC',
         operacao: 'mdc',
         num1: num1,
         num2: num2,
@@ -120,6 +136,8 @@ app.post('/ordenada', function (req, res) {
     var z = parseFloat(body.z);
     var ordenada_resultado = ord.ordenada(s, t, u, v, x, z);
     res.render('ordenada_resultado', {
+        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Ordenação',
         operacao: 'ordenada',
         s: s,
         t: t,
@@ -136,6 +154,8 @@ app.post('/primos', function (req, res) {
     var num = parseFloat(body.num);
     var primos_resultado = prim.primos(num);
     res.render('primos_resultado', {
+        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Números Primos',
         operacao: 'primos',
         num: num,
         primos_resultado: primos_resultado
@@ -149,6 +169,8 @@ app.post('/somatorio', function (req, res) {
     var num3 = parseFloat(body.num3);
     var somatorio_resultado = somat.somatorio(num1, num2, num3);
     res.render('somatorio_resultado', {
+        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+        subtitulo: 'Exercício de Somatório',
         operacao: 'somatorio',
         num1: num1,
         num2: num2,

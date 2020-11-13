@@ -1,51 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="site.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="descrição:" content="Números Primos">
-    <title>Somatório</title>
-</head>
-
-<body>
-    <p class="data">
-        Você atualizou essa página: <%= new Date(); %>
-    </p>
-    
-    <p class="tratamento"></p>
-    <div class="apresentacao">
-        <div class="apres">
-            <div class="form">
-                <p class="formulariocab">
-                    Exercício de Somatório:
-                </p>
-                <p class="formularioQ">
-                    Informe os números para serem somados.
-                </p>
-                <form method="POST" action="/somatorio" autocomplete="off">
-                    <input name="num1" type="text" />
-                    <input name="num2" type="text" />
-                    <input name="num3" type="text" />
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+<p class="tratamento"></p>
+<div class="apresentacao">
+    <div class="apres">
+        <div class="form">
+            <p class="formulariocab">
+                <%= subtitulo %>
+            </p>
             <p class="resultado">
                 O somatório de <%= num1 %> + <%= num2 %> + <%= num3 %> é <%= somatorio_resultado %>
             </p>
-
+            <p class="formularioQ">
+                Informe os próximos números para serem somados.
+            </p>
+            <form method="POST" action="/somatorio" autocomplete="off">
+                <input name="num1" type="text" />
+                <input name="num2" type="text" />
+                <input name="num3" type="text" />
+                <button type="submit">Enviar</button>
+            </form>
         </div>
     </div>
-    <div class="tratamento"></div>
-    <div class="voltar">
-        <div class="einstein2">
-            <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
-        </div>
-
-    </div>
-</body>
-
-</html>
+</div>
+<div class="tratamento"></div>

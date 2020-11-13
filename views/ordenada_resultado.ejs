@@ -1,56 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="site.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="descrição:" content="Resultado do Ordenação">
-    <title>Ordenação</title>
-</head>
-
-<body>
-    <p class="data">
-        Você atualizou essa página: <%= new Date(); %>
-    </p>
-
-    <p class="tratamento"></p>
-    <div class="apresentacao">
-        <div class="apres">
-            <div class="form">
-                <p class="formulariocab">
-                    Exercício de Ordenação QuickSort:
-                </p>
-                <p class="formularioQ">
-                    Informe os números para ordenar.
-                </p>
-                <form method="POST" action="/ordenada" autocomplete="off">
-                    <input name="s" type="text" />
-                    <input name="t" type="text" />
-                    <input name="u" type="text" />
-                    <input name="v" type="text" />
-                    <input name="x" type="text" />
-                    <input name="z" type="text" />
-                    </br>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+<div class="apresentacao">
+    <div class="apres">
+        <div class="form">
+            <p class="formulariocab">
+                <%= subtitulo %>
+            </p>
             <p class="resultado">
                 Numeracão a ser <%= operacao %>: (<%= s %>) (<%= t %>) (<%= u %>) (<%= v %>) (<%= x %>)
                 (<%= z %>). </br>Resultado da ordenação: <%= ordenada_resultado %>
             </p>
-
+            <p class="formularioQ">
+                Informe os próximos números para ordenar.
+            </p>
+            <form method="POST" action="/ordenada" autocomplete="off">
+                <input name="s" type="text" />
+                <input name="t" type="text" />
+                <input name="u" type="text" />
+                <input name="v" type="text" />
+                <input name="x" type="text" />
+                <input name="z" type="text" />
+                </br>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
     </div>
-    <div class="tratamento"></div>
-    <div class="voltar">
-        <div class="einstein2">
-            <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
-        </div>
-
-    </div>
-</body>
-
-</html>
+</div>

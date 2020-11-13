@@ -1,49 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="site.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="descrição:" content="Números Primos">
-    <title>Primos</title>
-</head>
-
-<body>
-    <p class="data">
-        Você atualizou essa página: <%= new Date(); %>
-    </p>
-
-    <p class="tratamento"></p>
-    <div class="apresentacao">
-        <div class="apres">
-            <div class="form">
-                <p class="formulariocab">
-                    Exercício de Números Primos:
-                </p>
-                <p class="formularioQ">
-                    Informe o número para saber se ele é PRIMO.
-                </p>
-                <form method="POST" action="/primos" autocomplete="off">
-                    <input name="num" type="text" />
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+<div class="apresentacao">
+    <div class="apres">
+        <div class="form">
+            <p class="formulariocab">
+                <%= subtitulo %>
+            </p>
             <p class="resultado">
                 <%= primos_resultado %>
             </p>
-
+            <p class="formularioQ">
+                Informe outro número para saber se ele é PRIMO.
+            </p>
+            <form method="POST" action="/primos" autocomplete="off">
+                <input name="num" type="text" />
+                <button type="submit">Enviar</button>
+            </form>
         </div>
     </div>
-    <div class="tratamento"></div>
-    <div class="voltar">
-        <div class="einstein2">
-            <p class="volta"><a href="/">Clique para ir para a HOME</a></p>
-        </div>
-
-    </div>
-</body>
-
-</html>
+</div>
