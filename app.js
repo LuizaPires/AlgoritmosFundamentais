@@ -2,92 +2,60 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressLayouts = require('express-ejs-layouts');
-var cont = require('./contagem');
-var fib = require('./fibonacci');
-var max = require('./mdc');
-var ord = require('./ordenada');
-var prim = require('./primos');
-var somat = require('./somatorio');
-
-
-const { get } = require('https');
-const { networkInterfaces } = require('os');
-
 var app = express();
+var {
+    contagem,
+	fibonacci,
+	mdc,
+	ordenada,
+	somatorio,
+	primos
+} = require('./funcoes')
+
+var {
+    paginaIndex,
+    paginaContagem,
+    paginaFibonacci,
+    paginaMdc,
+    paginaOrdenada,
+    paginaPrimos,
+    paginaSomatorio
+} = require('./paginas')
+
 
 //configura os dados oriundos da requisição http
-app.use(bodyParser.urlencoded({ extended: true }));
+app
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(expressLayouts)
+    .use(express.static('public'))
+    .use(express.static('public/css'))
+    .use(express.static('public/img'));
 
-app.use(expressLayouts);
+app
+    .set('view engine', 'ejs')
+    .set('views', path.join(__dirname, '/views'));
 
-app.use(express.static('public'));
-app.use(express.static('public/css'));
-app.use(express.static('public/img'));
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/views'));
 
-app.get('/', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: '',
-    };
-    res.render('index', parametro);
-});
 
-app.get('/contagem', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Contagem',
-    };
-    res.render('contagem', parametro);
-});
 
-app.get('/fibonacci', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Fibonacci',
-    };
-    res.render('fibonacci', parametro);
-});
+app
+    .get('/', paginaIndex)
+    .get('/contagem', paginaContagem)
+    .get('/fibonacci', paginaFibonacci)
+    .get('/mdc', paginaMdc)
+    .get('/ordenada', paginaOrdenada)
+    .get('/primos', paginaPrimos)
+    .get('/somatorio', paginaSomatorio);
 
-app.get('/mdc', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de MDC',
-    };
-    res.render('mdc', parametro);
-});
 
-app.get('/ordenada', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Ordenação',
-    };
-    res.render('ordenada', parametro);
-});
 
-app.get('/primos', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Números Primos',
-    };
-    res.render('primos', parametro);
-});
-
-app.get('/somatorio', function (req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Somatório',
-    };
-    res.render('somatorio', parametro);
-});
 
 app.post('/contagem', function (req, res) {
     var body = req.body;
     var numi = parseFloat(body.numi);
     var numf = parseFloat(body.numf);
-    var contagem_resultado = cont.contagem(numi, numf);
+    var contagem_resultado = contagem(numi, numf);
     res.render('contagem_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Contagem',
@@ -101,7 +69,7 @@ app.post('/contagem', function (req, res) {
 app.post('/fibonacci', function (req, res) {
     var body = req.body;
     var posicao = parseFloat(body.posicao);
-    var fibonacci_resultado = fib.fibonacci(posicao);
+    var fibonacci_resultado = fibonacci(posicao);
     res.render('fibonacci_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Fibonacci',
@@ -115,7 +83,7 @@ app.post('/mdc', function (req, res) {
     var body = req.body;
     var num1 = parseFloat(body.num1);
     var num2 = parseFloat(body.num2);
-    var mdc_resultado = max.mdc(num1, num2);
+    var mdc_resultado = mdc(num1, num2);
     res.render('mdc_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de MDC',
@@ -134,7 +102,7 @@ app.post('/ordenada', function (req, res) {
     var v = parseFloat(body.v);
     var x = parseFloat(body.x);
     var z = parseFloat(body.z);
-    var ordenada_resultado = ord.ordenada(s, t, u, v, x, z);
+    var ordenada_resultado = ordenada(s, t, u, v, x, z);
     res.render('ordenada_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Ordenação',
@@ -152,7 +120,7 @@ app.post('/ordenada', function (req, res) {
 app.post('/primos', function (req, res) {
     var body = req.body;
     var num = parseFloat(body.num);
-    var primos_resultado = prim.primos(num);
+    var primos_resultado = primos(num);
     res.render('primos_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Números Primos',
@@ -167,7 +135,7 @@ app.post('/somatorio', function (req, res) {
     var num1 = parseFloat(body.num1);
     var num2 = parseFloat(body.num2);
     var num3 = parseFloat(body.num3);
-    var somatorio_resultado = somat.somatorio(num1, num2, num3);
+    var somatorio_resultado = somatorio(num1, num2, num3);
     res.render('somatorio_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Somatório',
