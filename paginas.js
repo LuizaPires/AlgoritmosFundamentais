@@ -6,18 +6,6 @@ function paginaIndex(req, res) {
     res.render('index', parametro);
 }
 
-function paginaContagem(req, res) {
-    const parametro = {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Contagem',
-    };
-    res.render('contagem', parametro);
-}
-
 module.exports = {
-    paginaIndex,
-    paginaContagem
+    paginaIndex
 }
-
-
-

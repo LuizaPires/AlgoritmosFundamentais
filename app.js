@@ -4,9 +4,7 @@ var path = require('path');
 var expressLayouts = require('express-ejs-layouts');
 var app = express();
 
-var { contagem } = require('./funcoes')
-var { paginaIndex,
-    paginaContagem } = require('./paginas')
+var { paginaIndex } = require('./paginas');
 
 
 //configura os dados oriundos da requisição http
@@ -22,28 +20,8 @@ app
     .set('views', path.join(__dirname, '/views'));
 
 
+app.get('/', paginaIndex);
 
-
-
-app
-    .get('/', paginaIndex)
-    .get('/contagem', paginaContagem);
-
-
-app.post('/contagem', function (req, res) {
-    var body = req.body;
-    var numi = parseFloat(body.numi);
-    var numf = parseFloat(body.numf);
-    var contagem_resultado = contagem(numi, numf);
-    res.render('contagem_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
-        subtitulo: 'Exercício de Contagem',
-        operacao: 'contagem',
-        numi: numi,
-        numf: numf,
-        contagem_resultado: contagem_resultado
-    });
-});
 
 var port = 3001;
 
