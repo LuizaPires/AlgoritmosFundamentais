@@ -64,6 +64,3 @@ module.exports = {
     paginaPrimos,
     paginaSomatorio
 }
-
-
-
