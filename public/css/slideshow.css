@@ -1,0 +1,90 @@
+.mySlides {
+  display: none;
+}
+
+.slider-scrap {
+  text-align: center;
+  font-family: graduate;
+  color: #0e3264;
+  font-weight: bold;
+  padding: 7px;
+  font-size: 1.2em;
+}
+
+.slideshow-container img {
+  vertical-align: middle;
+  border-radius: 10px;
+  border: 6px solid #0e32640f;
+  box-shadow: 2px 2px 2px #0e32644f;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  width: 300px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #ffffd2;
+  background-color: #fbf5bf57;
+  font-size: 15px;
+  padding: 0px 12px;
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  text-align: center;
+  text-shadow: 1px 1px 3px #002e5b;
+  border-top: 1px solid #fbf4ba66;
+  border-bottom: 1px solid #fbf4ba66;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  border: 1px solid #0e3264;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px #0e3264;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #0e3264;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
