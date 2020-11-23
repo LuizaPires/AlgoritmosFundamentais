@@ -35,10 +35,6 @@ app
     .set('view engine', 'ejs')
     .set('views', path.join(__dirname, '/views'));
 
-
-
-
-
 app
     .get('/', paginaIndex)
     .get('/contagem', paginaContagem)
@@ -47,8 +43,6 @@ app
     .get('/ordenada', paginaOrdenada)
     .get('/primos', paginaPrimos)
     .get('/somatorio', paginaSomatorio);
-
-
 
 
 app.post('/contagem', function (req, res) {
