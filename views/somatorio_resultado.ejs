@@ -5,16 +5,22 @@
             <p class="formulariocab">
                 <%= subtitulo %>
             </p>
-            <p class="resultado">
-                O somatório de <%= num1 %> + <%= num2 %> + <%= num3 %> é <%= somatorio_resultado %>
-            </p>
+            
+            <% if(resultado) { %>
+                <p class="resultado">
+                    Vetor a ser somado: <%= vetorEntrada %>. </br>Resultado da soma: <%= resultado %>
+                </p>
+            <% } else { %>
+                <p class="resultado">
+                    Por favor, confira o seu vetor
+                </p> 
+            <% } %>
+
             <p class="formularioQ">
                 Informe os próximos números para serem somados.
             </p>
             <form method="POST" action="/somatorio" autocomplete="off">
-                <input name="num1" type="text" />
-                <input name="num2" type="text" />
-                <input name="num3" type="text" />
+                <%- include("./elementos/inputVetor") %>
                 <button type="submit">Enviar</button>
             </form>
         </div>

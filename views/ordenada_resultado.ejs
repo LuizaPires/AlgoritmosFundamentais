@@ -5,9 +5,9 @@
                 <%= subtitulo %>
             </p>
 
-            <% if(ordenada_resultado) { %>
+            <% if(resultado) { %>
                 <p class="resultado">
-                    Vetor a ser ordenado: <%= vetorEntrada %>. </br>Resultado da ordenação: <%= ordenada_resultado %>
+                    Vetor a ser ordenado: <%= vetorEntrada %>. </br>Resultado da ordenação: <%= resultado %>
                 </p>
             <% } else { %>
                 <p class="resultado">
@@ -19,10 +19,9 @@
                 Informe os próximos números para ordenar
             </p>
             <form method="POST" action="/ordenada" autocomplete="off">
-                <input name="vetorEntrada" type="text" onfocus="this.placeholder = ''"
-                onblur="this.placeholder = 'Números separados por vírgula'" placeholder="Números separados por vírgula"/>
+                <%- include("./elementos/inputVetor") %>
                 </br>
-                <button type="submit">Enviar</button>
+                <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
     </div>

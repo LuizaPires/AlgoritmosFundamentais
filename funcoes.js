@@ -64,11 +64,12 @@ function ordenada(inputArray) {
 
 
 
-function somatorio(num1, num2, num3) {
-    num1 = parseFloat(num1);
-    num2 = parseFloat(num2);
-    num3 = parseFloat(num3);
-    soma = (num1 + num2 + num3);
+function somatorio(vetorEntrada) {
+	vetor = vetorEntrada.slice();
+	var soma = 0;
+	vetor.forEach(elemento =>{
+		soma += elemento;
+	});
     return soma;
 }
 

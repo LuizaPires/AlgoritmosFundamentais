@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
+const formatarVetor = require('./views/utilidades/formatarVetor')
 const {
     contagem,
     fibonacci,
@@ -25,7 +26,6 @@ const {
     equipe,
     titulo
 } = require('./views/utilidades/dados')
-
 
 
 //configura os dados oriundos da requisição http
@@ -107,9 +107,9 @@ app.post('/ordenada', function (req, res) {
     var vetorEntrada = body.vetorEntrada;
     var ordenada_resultado;
 
-    vetorEntrada = vetorEntrada.replace(/\s/g, '').split(",").filter(Boolean).map(elemento => +elemento);
+    vetorEntrada = formatarVetor.textoParaVetor(vetorEntrada);
 
-    if (Array.isArray(vetorEntrada) && vetorEntrada.length && vetorEntrada.every(function (elemento) { return typeof elemento === 'number' }) && !vetorEntrada.includes(NaN)) {
+    if (formatarVetor.validarVetorNumerico(vetorEntrada)) {
         ordenada_resultado = ordenada(vetorEntrada);
     }
     else {
@@ -122,7 +122,7 @@ app.post('/ordenada', function (req, res) {
         subtitulo: 'Exercício de Ordenação',
         operacao: 'ordenada',
         vetorEntrada: vetorEntrada,
-        ordenada_resultado: ordenada_resultado,
+        resultado: ordenada_resultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
@@ -147,18 +147,23 @@ app.post('/primos', function (req, res) {
 
 app.post('/somatorio', function (req, res) {
     var body = req.body;
-    var num1 = parseFloat(body.num1);
-    var num2 = parseFloat(body.num2);
-    var num3 = parseFloat(body.num3);
-    var somatorio_resultado = somatorio(num1, num2, num3);
+    var somatorio_resultado;
+    var vetorEntrada = body.vetorEntrada;
+    vetorEntrada = formatarVetor.textoParaVetor(vetorEntrada);
+
+    if (formatarVetor.validarVetorNumerico(vetorEntrada)) {
+        somatorio_resultado = somatorio(vetorEntrada);
+    }
+    else {
+        somatorio_resultado = false;
+    }
+
     res.render('somatorio_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Somatório',
         operacao: 'somatorio',
-        num1: num1,
-        num2: num2,
-        num3: num3,
-        somatorio_resultado: somatorio_resultado,
+        vetorEntrada: vetorEntrada,
+        resultado: somatorio_resultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe

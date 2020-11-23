@@ -14,8 +14,7 @@
                 Informe os números para ordenar.
             </p>
             <form method="POST" action="/ordenada" autocomplete="off">
-                <input name="vetorEntrada" type="text" onfocus="this.placeholder = ''"
-                onblur="this.placeholder = 'Números separados por vírgula'" placeholder="Números separados por vírgula" />
+                <%- include("./elementos/inputVetor") %>
                 </br>
                 <button type="submit">Enviar</button>
             </form>
