@@ -2,6 +2,50 @@ function paginaIndex(req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: '',
+        botoes: [
+            {
+                class: "home",
+                divClass: "homeInt",
+                href: "/",
+                texto: "HOME"
+            },
+            {
+                class: "contagem",
+                divClass: "contagemInt",
+                href: "contagem",
+                texto: "CONTAGEM"
+            },
+            {
+                class: "fibonacci",
+                divClass: "fibonacciInt",
+                href: "fibonacci",
+                texto: "FIBONACCI"
+            },
+            {
+                class: "maxdivcomum",
+                divClass: "maxdivcomumInt",
+                href: "mdc",
+                texto: "MDC"
+            },
+            {
+                class: "ordenacao",
+                divClass: "ordenacaoInt",
+                href: "ordenada",
+                texto: "ORDENAÇÃO"
+            },
+            {
+                class: "primos",
+                divClass: "primosInt",
+                href: "primos",
+                texto: "NÚM. PRIMOS"
+            },
+            {
+                class: "somatorio",
+                divClass: "somatorioInt",
+                href: "somatorio",
+                texto: "SOMATÓRIO"
+            }
+        ],
         equipe: [
             {
                 href: "https://www.baudalu.net.br",
