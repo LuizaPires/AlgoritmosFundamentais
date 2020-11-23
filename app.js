@@ -1,18 +1,17 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var expressLayouts = require('express-ejs-layouts');
-var app = express();
-var {
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
+const app = express();
+const {
     contagem,
-	fibonacci,
-	mdc,
-	ordenada,
-	somatorio,
-	primos
+    fibonacci,
+    mdc,
+    ordenada,
+    somatorio,
+    primos
 } = require('./funcoes')
-
-var {
+const {
     paginaIndex,
     paginaContagem,
     paginaFibonacci,
@@ -21,6 +20,12 @@ var {
     paginaPrimos,
     paginaSomatorio
 } = require('./paginas')
+const {
+    botoes,
+    equipe,
+    titulo
+} = require('./views/utilidades/dados')
+
 
 
 //configura os dados oriundos da requisição http
@@ -56,7 +61,10 @@ app.post('/contagem', function (req, res) {
         operacao: 'contagem',
         numi: numi,
         numf: numf,
-        contagem_resultado: contagem_resultado
+        contagem_resultado: contagem_resultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
 });
 
@@ -69,7 +77,10 @@ app.post('/fibonacci', function (req, res) {
         subtitulo: 'Exercício de Fibonacci',
         operacao: 'fibonacci',
         posicao: posicao,
-        fibonacci_resultado: fibonacci_resultado
+        fibonacci_resultado: fibonacci_resultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
 });
 
@@ -84,30 +95,37 @@ app.post('/mdc', function (req, res) {
         operacao: 'mdc',
         num1: num1,
         num2: num2,
-        mdc_resultado: mdc_resultado
+        mdc_resultado: mdc_resultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
 });
 
 app.post('/ordenada', function (req, res) {
     var body = req.body;
-    var s = parseFloat(body.s);
-    var t = parseFloat(body.t);
-    var u = parseFloat(body.u);
-    var v = parseFloat(body.v);
-    var x = parseFloat(body.x);
-    var z = parseFloat(body.z);
-    var ordenada_resultado = ordenada(s, t, u, v, x, z);
+    var vetorEntrada = body.vetorEntrada;
+    var ordenada_resultado;
+
+    vetorEntrada = vetorEntrada.replace(/\s/g, '').split(",").filter(Boolean).map(elemento => +elemento);
+
+    if (Array.isArray(vetorEntrada) && vetorEntrada.length && vetorEntrada.every(function (elemento) { return typeof elemento === 'number' }) && !vetorEntrada.includes(NaN)) {
+        ordenada_resultado = ordenada(vetorEntrada);
+    }
+    else {
+        ordenada_resultado = false;
+    }
+
+
     res.render('ordenada_resultado', {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Ordenação',
         operacao: 'ordenada',
-        s: s,
-        t: t,
-        u: u,
-        v: v,
-        x: x,
-        z: z,
-        ordenada_resultado: ordenada_resultado
+        vetorEntrada: vetorEntrada,
+        ordenada_resultado: ordenada_resultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
 });
 
@@ -120,7 +138,10 @@ app.post('/primos', function (req, res) {
         subtitulo: 'Exercício de Números Primos',
         operacao: 'primos',
         num: num,
-        primos_resultado: primos_resultado
+        primos_resultado: primos_resultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
 });
 
@@ -137,7 +158,10 @@ app.post('/somatorio', function (req, res) {
         num1: num1,
         num2: num2,
         num3: num3,
-        somatorio_resultado: somatorio_resultado
+        somatorio_resultado: somatorio_resultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
 });
 
