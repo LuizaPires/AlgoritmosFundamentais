@@ -43,11 +43,14 @@
     <div class="footer">
         <div class="bloco-footer">
             <h2>Quem somos:</h2>
-            <%- include('./btn/luizapires')%>
-            <%- include('./btn/kevinguedes')%>
-            <%- include('./btn/sofiaoliveira')%>
-            <%- include('./btn/camilaalves')%>
-            <%- include('./btn/guilhermefederico')%>
+            <% equipe.map(membro => { %>
+                <div class="pessoal">
+                    <a href="<%= membro.site %>">
+                        <img class="foto-pessoa" src="<%= membro.src %>" alt="<%= membro.nome %>">
+                    </a>
+                    <p id="nome"><%= membro.nome %></p>
+                </div>
+            <% }) %>
         </div>
     </div>
 

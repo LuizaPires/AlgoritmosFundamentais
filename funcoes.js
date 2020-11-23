@@ -41,7 +41,8 @@ function mdc(num1, num2) {
 }
 
 
-function ordenada(array) {
+function ordenada(inputArray) {
+	array = inputArray.slice();
 	if (array.length < 2) {
 		return array;
 	}

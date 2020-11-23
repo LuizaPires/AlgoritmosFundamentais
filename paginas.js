@@ -2,6 +2,33 @@ function paginaIndex(req, res) {
     const parametro = {
         titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: '',
+        equipe: [
+            {
+                href: "https://www.baudalu.net.br",
+                src: "img/2020.jpg",
+                nome: "Luiza Pires"
+            },
+            {
+                href: "https://www.linkedin.com/in/kevinsantosguedes/",
+                src: "img/fotoKevin.png",
+                nome: "Kevin Guedes"
+            },
+            {
+                href: "www.linkedin.com/in/sofia-oliveira-383b2117a",
+                src: "img/perfil_Sofia (2).JPG",
+                nome: "Sofia Oliveira"
+            },
+            {
+                href: "https://www.linkedin.com/in/camisjef/",
+                src:"https://media-exp1.licdn.com/dms/image/C4D03AQGHN1hmGlJFpg/profile-displayphoto-shrink_400_400/0?e=1611792000&v=beta&t=rhI56k2NDiFn8bCTmBEJUs5EZQGYts2sX2KKWGONnUI",
+                nome: "Camila Alves"
+            },
+            {
+                href: "https://www.linkedin.com/in/guilherme-federico/",
+                src: "https://media-exp1.licdn.com/dms/image/C5603AQHcuQiBxNvtLw/profile-displayphoto-shrink_200_200/0/1534937834868?e=1611792000&v=beta&t=YRkAQWbD4Nr7jmXjq5dVuV5RNP-zSFf45HnNZZHRmDk",
+                nome:"Guilherme Federico"
+            }
+        ]
     };
     res.render('index', parametro);
 }
