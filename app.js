@@ -56,7 +56,6 @@ app.post('/contagem', function (req, res) {
     var numf = parseFloat(body.numf);
     var contagem_resultado = contagem(numi, numf);
     res.render('contagem_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Contagem',
         operacao: 'contagem',
         numi: numi,
@@ -73,7 +72,6 @@ app.post('/fibonacci', function (req, res) {
     var posicao = parseFloat(body.posicao);
     var fibonacci_resultado = fibonacci(posicao);
     res.render('fibonacci_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Fibonacci',
         operacao: 'fibonacci',
         posicao: posicao,
@@ -90,7 +88,6 @@ app.post('/mdc', function (req, res) {
     var num2 = parseFloat(body.num2);
     var mdc_resultado = mdc(num1, num2);
     res.render('mdc_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de MDC',
         operacao: 'mdc',
         num1: num1,
@@ -118,7 +115,6 @@ app.post('/ordenada', function (req, res) {
 
 
     res.render('ordenada_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Ordenação',
         operacao: 'ordenada',
         vetorEntrada: vetorEntrada,
@@ -134,7 +130,6 @@ app.post('/primos', function (req, res) {
     var num = parseFloat(body.num);
     var primos_resultado = primos(num);
     res.render('primos_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Números Primos',
         operacao: 'primos',
         num: num,
@@ -159,7 +154,6 @@ app.post('/somatorio', function (req, res) {
     }
 
     res.render('somatorio_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
         subtitulo: 'Exercício de Somatório',
         operacao: 'somatorio',
         vetorEntrada: vetorEntrada,
