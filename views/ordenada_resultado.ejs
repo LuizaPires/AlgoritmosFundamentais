@@ -4,22 +4,24 @@
             <p class="formulariocab">
                 <%= subtitulo %>
             </p>
-            <p class="resultado">
-                Numeracão a ser <%= operacao %>: (<%= s %>) (<%= t %>) (<%= u %>) (<%= v %>) (<%= x %>)
-                (<%= z %>). </br>Resultado da ordenação: <%= ordenada_resultado %>
-            </p>
+
+            <% if(resultado) { %>
+                <p class="resultado">
+                    Vetor a ser ordenado: <%= vetorEntrada %>. </br>Resultado da ordenação: <%= resultado %>
+                </p>
+            <% } else { %>
+                <p class="resultado">
+                    Por favor, confira o seu vetor
+                </p> 
+            <% } %>
+
             <p class="formularioQ">
-                Informe os próximos números para ordenar.
+                Informe os próximos números para ordenar
             </p>
             <form method="POST" action="/ordenada" autocomplete="off">
-                <input name="s" type="text" />
-                <input name="t" type="text" />
-                <input name="u" type="text" />
-                <input name="v" type="text" />
-                <input name="x" type="text" />
-                <input name="z" type="text" />
+                <%- include("./elementos/inputVetor") %>
                 </br>
-                <button type="submit">Enviar</button>
+                <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
     </div>
