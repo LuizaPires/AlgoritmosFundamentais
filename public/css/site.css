@@ -151,6 +151,7 @@ form {
     text-shadow: 1px 1px 2px rgb(138, 138, 92);
 }
 input[type="text"] {
+    width: 60%;
     font-size: 16px;
     color: #0c6e71;
     background-color: #f9f9da;
@@ -159,6 +160,7 @@ input[type="text"] {
     border-radius: 5px;
     border-color: #dedebf;
     font-weight: 600;
+    text-align: center;
 }
 button {
     background-color: #f9f9dab0;
@@ -246,6 +248,14 @@ button {
     }
 }
 
+@media screen and (max-width: 1300px) {
+    input[type="text"] {
+        width: 70%;
+        margin: 5px 0px;
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 1100px) {
     .home, .cabecalho, .einstein, .comentarios, .contagem, .fibonacci, .maxdivcomum, .ordenacao, .primos,
     .somatorio, .homeInt, .contagemInt, .fibonacciInt, .maxdivcomumInt, .ordenacaoInt, .primosInt, 
@@ -255,6 +265,11 @@ button {
         font-size: 1em; 
         text-align: center;
         margin: 0px 0px;
+    }
+    input[type="text"] {
+        width: 95%;
+        margin: 5px 0px;
+        text-align: center;
     }
     p.comentario, .autoria {
     padding: 0px 0px 10px 0px;
@@ -303,16 +318,12 @@ button {
 }
 
 @media screen and (max-width: 1000px){
-.footer {
-    height: 275px;
-}
+    .footer {
+        height: 275px;
+    }
 }
 
 @media screen and (max-width: 600px) {
-    input[type="text"] {
-        width: 95%;
-        margin: 5px 0px;
-    }
     .foto-pessoa  {
         margin: 0px 15px 5px 15px;
     }

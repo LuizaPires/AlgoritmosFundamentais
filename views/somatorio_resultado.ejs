@@ -12,7 +12,7 @@
                 </p>
             <% } else { %>
                 <p class="resultado">
-                    Por favor, confira o seu vetor
+                    Por favor, confira o seu vetor. Separe suas entradas com vírgulas.
                 </p> 
             <% } %>
 
@@ -21,7 +21,7 @@
             </p>
             <form method="POST" action="/somatorio" autocomplete="off">
                 <%- include("./elementos/inputVetor") %>
-                <button type="submit">Enviar</button>
+                <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
     </div>

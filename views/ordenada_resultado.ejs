@@ -7,11 +7,11 @@
 
             <% if(resultado) { %>
                 <p class="resultado">
-                    Vetor a ser ordenado: <%= vetorEntrada %>. </br>Resultado da ordenação: <%= resultado %>
+                    Vetor a ser ordenado: <%= vetorEntrada %> </br>Resultado da ordenação: <%= resultado %>
                 </p>
             <% } else { %>
                 <p class="resultado">
-                    Por favor, confira o seu vetor
+                    Por favor, confira o seu vetor. Separe suas entradas com vírgulas.
                 </p> 
             <% } %>
 
@@ -20,7 +20,6 @@
             </p>
             <form method="POST" action="/ordenada" autocomplete="off">
                 <%- include("./elementos/inputVetor") %>
-                </br>
                 <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
