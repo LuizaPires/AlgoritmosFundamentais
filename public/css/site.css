@@ -151,7 +151,6 @@ form {
     text-shadow: 1px 1px 2px rgb(138, 138, 92);
 }
 input[type="text"] {
-    width: 60%;
     font-size: 16px;
     color: #0c6e71;
     background-color: #f9f9da;
@@ -161,6 +160,9 @@ input[type="text"] {
     border-color: #dedebf;
     font-weight: 600;
     text-align: center;
+}
+input.campovetor{
+    width: 60%;
 }
 button {
     background-color: #f9f9dab0;
@@ -250,9 +252,11 @@ button {
 
 @media screen and (max-width: 1300px) {
     input[type="text"] {
-        width: 70%;
         margin: 5px 0px;
         text-align: center;
+    }
+    input.campovetor{
+        width: 70%;
     }
 }
 
@@ -267,9 +271,11 @@ button {
         margin: 0px 0px;
     }
     input[type="text"] {
-        width: 95%;
         margin: 5px 0px;
         text-align: center;
+    }
+    input.campovetor{
+        width: 95%;
     }
     p.comentario, .autoria {
     padding: 0px 0px 10px 0px;
