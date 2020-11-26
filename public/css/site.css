@@ -243,7 +243,7 @@ button {
     font-size: 0.8em;
     text-align: center;
 }
-
+/* -------- responsividade -----------*/
 @media screen and (max-width: 1480px) {
     .footer {
         height: 310px;
