@@ -28,7 +28,6 @@ const {
 } = require('./views/utilidades/dados')
 
 
-//configura os dados oriundos da requisição http
 app
     .use(bodyParser.urlencoded({ extended: true }))
     .use(expressLayouts)
