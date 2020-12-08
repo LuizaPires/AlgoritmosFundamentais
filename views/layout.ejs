@@ -49,7 +49,7 @@
             <h2>Quem somos:</h2>
             <% equipe.map(membro => { %>
                 <div class="pessoal">
-                    <a href="<%= membro.site %>">
+                    <a href="<%= membro.href %>">
                         <img class="foto-pessoa" src="<%= membro.src %>" alt="<%= membro.nome %>">
                     </a>
                     <p id="nome"><%= membro.nome %></p>

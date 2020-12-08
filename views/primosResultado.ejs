@@ -5,14 +5,13 @@
                 <%= subtitulo %>
             </p>
             <p class="resultado">
-                O <%= operacao %> de (<%= num1 %>) e (<%= num2 %>) é : <%= mdc_resultado %>
+                <%= primosResultado %>
             </p>
             <p class="formularioQ">
-                Informe outros 2 números para mostrar o MDC entre eles.
+                Informe outro número para saber se ele é PRIMO.
             </p>
-            <form method="POST" action="/mdc" autocomplete="off">
-                <input name="num1" type="text" />
-                <input name="num2" type="text" />
+            <form method="POST" action="/primos" autocomplete="off">
+                <input name="numero" type="text" />
                 <%- include("./elementos/btnEnviar") %>
             </form>
         </div>

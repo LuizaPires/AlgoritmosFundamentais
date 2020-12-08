@@ -1,9 +1,8 @@
-function contagem(numi, numf) {
-    numi = parseInt(1);
-    numf = parseInt(numf);
-    var contador = 0;
+function contagem(numeroFinal) {
+    numeroFinal = parseInt(numeroFinal);
+    let contador = 0;
 
-    for (var i = numi; i <= numf; i++) {
+    for (let i = 1; i <= numeroFinal; i++) {
         contador++;
     }
     return contador;
@@ -11,33 +10,33 @@ function contagem(numi, numf) {
 
 
 function fibonacci(posicao) {
-	var termo1 = 0, termo2 = 1, posicaotermo;
+	let primeiroTermo = 0, segundoTermo = 1, posicaoTermo;
 	if (posicao <= 0) {
-		posicaotermo = "Por favor, insira um número acima de zero";
+		posicaoTermo = "Por favor, insira um número acima de zero";
 	}
 	if (posicao == 1) {
-		posicaotermo = '0';
+		posicaoTermo = '0';
 	}
 	if (posicao == 2) {
-		posicaotermo = '1';
+		posicaoTermo = '1';
 	}
-	for (var i = 2; i < posicao; i++) {
-		posicaotermo = termo1 + termo2;
-		termo1 = termo2;
-		termo2 = posicaotermo;
+	for (let i = 2; i < posicao; i++) {
+		posicaoTermo = primeiroTermo + segundoTermo;
+		primeiroTermo = segundoTermo;
+		segundoTermo = posicaoTermo;
 	}
-	return posicaotermo;
+	return posicaoTermo;
 }
 
 
-function mdc(num1, num2) {
-    var resto;
+function mdc(primeiroNumero, segundoNumero) {
+    let resto;
     do {
-        resto = num1 % num2;
-        num1 = num2;
-        num2 = resto;
+        resto = primeiroNumero % segundoNumero;
+        primeiroNumero = segundoNumero;
+        segundoNumero = resto;
     } while (resto != 0);
-    return num1;
+    return primeiroNumero;
 }
 
 
@@ -47,11 +46,11 @@ function ordenada(inputArray) {
 		return array;
 	}
 
-	var pivot = array[0];
-	var lesserArray = [];
-	var greaterArray = [];
+	let pivot = array[0];
+	let lesserArray = [];
+	let greaterArray = [];
 
-	for (var i = 1; i < array.length; i++) {
+	for (let i = 1; i < array.length; i++) {
 		if (array[i] > pivot) {
 			greaterArray.push(array[i]);
 		} else {
@@ -66,7 +65,7 @@ function ordenada(inputArray) {
 
 function somatorio(vetorEntrada) {
 	vetor = vetorEntrada.slice();
-	var soma = 0;
+	let soma = 0;
 	vetor.forEach(elemento =>{
 		soma += elemento;
 	});
@@ -74,18 +73,18 @@ function somatorio(vetorEntrada) {
 }
 
 
-function primos(num) {
-	var contDiv = 0;// contador de divisores exatos
-	for (var i = 1; i <= num; i++) {
-		if (num % i == 0) {
-			contDiv++;
+function primos(numero) {
+	let contador = 0;// contador de divisores exatos
+	for (let i = 1; i <= numero; i++) {
+		if (numero % i == 0) {
+			contador++;
 		}
 	}
 
-	if (contDiv == 2) {
-		return (`${num} é um número primo.`);
+	if (contador == 2) {
+		return (`${numero} é um número primo.`);
 	} else {
-		return (`${num} não é um número primo.`);
+		return (`${numero} não é um número primo.`);
 	}
 }
 
