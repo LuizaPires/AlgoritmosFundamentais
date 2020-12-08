@@ -82,14 +82,14 @@ app.post('/fibonacci', function (req, res) {
 
 app.post('/mdc', function (req, res) {
     var body = req.body;
-    var num1 = parseFloat(body.num1);
-    var num2 = parseFloat(body.num2);
-    var mdcResultado = mdc(num1, num2);
+    var primeiroNumero = parseInt(body.primeiroNumero);
+    var segundoNumero = parseInt(body.segundoNumero);
+    var mdcResultado = mdc(primeiroNumero, segundoNumero);
     res.render('mdcResultado', {
         subtitulo: 'Exercício de MDC',
         operacao: 'mdc',
-        num1: num1,
-        num2: num2,
+        primeiroNumero: primeiroNumero,
+        segundoNumero: segundoNumero,
         mdcResultado: mdcResultado,
         titulo: titulo,
         botoes: botoes,
@@ -125,12 +125,12 @@ app.post('/ordenada', function (req, res) {
 
 app.post('/primos', function (req, res) {
     var body = req.body;
-    var num = parseFloat(body.num);
-    var primosResultado = primos(num);
+    var numero = parseInt(body.numero);
+    var primosResultado = primos(numero);
     res.render('primosResultado', {
         subtitulo: 'Exercício de Números Primos',
         operacao: 'primos',
-        num: num,
+        numero: numero,
         primosResultado: primosResultado,
         titulo: titulo,
         botoes: botoes,
