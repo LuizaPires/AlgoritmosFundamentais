@@ -5,13 +5,13 @@
                 <%= subtitulo %>
             </p>
             <p class="resultado">
-                <%= primos_resultado %>
+                Mostrando o termo <%= operacao %> para a posição solicitada (<%= posicao %>): <%= fibonacciResultado %>
             </p>
             <p class="formularioQ">
-                Informe outro número para saber se ele é PRIMO.
+                Informe a próxima posição para mostrar a Fibonacci.
             </p>
-            <form method="POST" action="/primos" autocomplete="off">
-                <input name="num" type="text" />
+            <form method="POST" action="/fibonacci" autocomplete="off">
+                <input name="posicao" type="text" />
                 <%- include("./elementos/btnEnviar") %>
             </form>
         </div>

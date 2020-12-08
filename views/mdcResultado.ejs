@@ -5,13 +5,14 @@
                 <%= subtitulo %>
             </p>
             <p class="resultado">
-                Mostrando o termo <%= operacao %> para a posição solicitada (<%= posicao %>): <%= fibonacci_resultado %>
+                O <%= operacao %> de (<%= primeiroNumero %>) e (<%= segundoNumero %>) é : <%= mdcResultado %>
             </p>
             <p class="formularioQ">
-                Informe a próxima posição para mostrar a Fibonacci.
+                Informe outros 2 números para mostrar o MDC entre eles.
             </p>
-            <form method="POST" action="/fibonacci" autocomplete="off">
-                <input name="posicao" type="text" />
+            <form method="POST" action="/mdc" autocomplete="off">
+                <input name="primeiroNumero" type="text" />
+                <input name="segundoNumero" type="text" />
                 <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
