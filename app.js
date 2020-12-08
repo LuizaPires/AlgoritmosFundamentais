@@ -52,15 +52,13 @@ app
 
 app.post('/contagem', function (req, res) {
     var body = req.body;
-    var numi = parseFloat(body.numi);
-    var numf = parseFloat(body.numf);
-    var contagem_resultado = contagem(numi, numf);
-    res.render('contagem_resultado', {
+    var numeroFinal = parseInt(body.numeroFinal);
+    var contagemResultado = contagem(numeroFinal);
+    res.render('contagemResultado', {
         subtitulo: 'Exercício de Contagem',
         operacao: 'contagem',
-        numi: numi,
-        numf: numf,
-        contagem_resultado: contagem_resultado,
+        numeroFinal: numeroFinal,
+        contagemResultado: contagemResultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
@@ -70,12 +68,12 @@ app.post('/contagem', function (req, res) {
 app.post('/fibonacci', function (req, res) {
     var body = req.body;
     var posicao = parseFloat(body.posicao);
-    var fibonacci_resultado = fibonacci(posicao);
-    res.render('fibonacci_resultado', {
+    var fibonacciResultado = fibonacci(posicao);
+    res.render('fibonacciResultado', {
         subtitulo: 'Exercício de Fibonacci',
         operacao: 'fibonacci',
         posicao: posicao,
-        fibonacci_resultado: fibonacci_resultado,
+        fibonacciResultado: fibonacciResultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
@@ -86,13 +84,13 @@ app.post('/mdc', function (req, res) {
     var body = req.body;
     var num1 = parseFloat(body.num1);
     var num2 = parseFloat(body.num2);
-    var mdc_resultado = mdc(num1, num2);
-    res.render('mdc_resultado', {
+    var mdcResultado = mdc(num1, num2);
+    res.render('mdcResultado', {
         subtitulo: 'Exercício de MDC',
         operacao: 'mdc',
         num1: num1,
         num2: num2,
-        mdc_resultado: mdc_resultado,
+        mdcResultado: mdcResultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
@@ -102,23 +100,23 @@ app.post('/mdc', function (req, res) {
 app.post('/ordenada', function (req, res) {
     var body = req.body;
     var vetorEntrada = body.vetorEntrada;
-    var ordenada_resultado;
+    var ordenadaResultado;
 
     vetorEntrada = formatarVetor.textoParaVetor(vetorEntrada);
 
     if (formatarVetor.validarVetorNumerico(vetorEntrada)) {
-        ordenada_resultado = ordenada(vetorEntrada);
+        ordenadaResultado = ordenada(vetorEntrada);
     }
     else {
-        ordenada_resultado = false;
+        ordenadaResultado = false;
     }
 
 
-    res.render('ordenada_resultado', {
+    res.render('ordenadaResultado', {
         subtitulo: 'Exercício de Ordenação',
         operacao: 'ordenada',
         vetorEntrada: vetorEntrada,
-        resultado: ordenada_resultado,
+        ordenadaResultado: ordenadaResultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
@@ -128,12 +126,12 @@ app.post('/ordenada', function (req, res) {
 app.post('/primos', function (req, res) {
     var body = req.body;
     var num = parseFloat(body.num);
-    var primos_resultado = primos(num);
-    res.render('primos_resultado', {
+    var primosResultado = primos(num);
+    res.render('primosResultado', {
         subtitulo: 'Exercício de Números Primos',
         operacao: 'primos',
         num: num,
-        primos_resultado: primos_resultado,
+        primosResultado: primosResultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
@@ -142,22 +140,22 @@ app.post('/primos', function (req, res) {
 
 app.post('/somatorio', function (req, res) {
     var body = req.body;
-    var somatorio_resultado;
+    var somatorioResultado;
     var vetorEntrada = body.vetorEntrada;
     vetorEntrada = formatarVetor.textoParaVetor(vetorEntrada);
 
     if (formatarVetor.validarVetorNumerico(vetorEntrada)) {
-        somatorio_resultado = somatorio(vetorEntrada);
+        somatorioResultado = somatorio(vetorEntrada);
     }
     else {
-        somatorio_resultado = false;
+        somatorioResultado = false;
     }
 
-    res.render('somatorio_resultado', {
+    res.render('somatorioResultado', {
         subtitulo: 'Exercício de Somatório',
         operacao: 'somatorio',
         vetorEntrada: vetorEntrada,
-        resultado: somatorio_resultado,
+        somatorioResultado: somatorioResultado,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe

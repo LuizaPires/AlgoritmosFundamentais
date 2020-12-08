@@ -1,75 +1,39 @@
 const {botoes, equipe, titulo} = require('./views/utilidades/dados')
-
-
-function paginaIndex(req, res) {
-    const parametro = {
-        subtitulo: '',
+const dados = (subtitulo) => {
+    return {
+        subtitulo: subtitulo,
         titulo: titulo,
         botoes: botoes,
         equipe: equipe
-    };
-    res.render('index', parametro);
+    }
 }
 
+function paginaIndex(req, res) {
+    res.render('index', dados(''));
+}
 
 function paginaContagem(req, res) {
-    const parametro = {
-        titulo: titulo,
-        botoes: botoes,
-        equipe: equipe,
-        subtitulo: 'Exercício de Contagem',
-    };
-    res.render('contagem', parametro);
+    res.render('contagem', dados('Exercício de Contagem'));
 }
 
 function paginaFibonacci(req, res) {
-    const parametro = {
-        titulo: titulo,
-        botoes: botoes,
-        equipe: equipe,
-        subtitulo: 'Exercício de Fibonacci',
-    };
-    res.render('fibonacci', parametro);
+    res.render('fibonacci', dados('Exercício de Fibonacci'));
 }
 
 function paginaMdc(req, res) {
-    const parametro = {
-        titulo: titulo,
-        botoes: botoes,
-        equipe: equipe,
-        subtitulo: 'Exercício de MDC',
-    };
-    res.render('mdc', parametro);
+    res.render('mdc', dados('Exercício de MDC'));
 }
 
 function paginaOrdenada(req, res) {
-    const parametro = {
-        titulo: titulo,
-        botoes: botoes,
-        equipe: equipe,
-        subtitulo: 'Exercício de Ordenação',
-    };
-    res.render('ordenada', parametro);
+    res.render('ordenada', dados('Exercício de Ordenação'));
 }
 
 function paginaPrimos(req, res) {
-    const parametro = {
-        titulo: titulo,
-        botoes: botoes,
-        equipe: equipe,
-        subtitulo: 'Exercício de Números Primos',
-    };
-    res.render('primos', parametro);
+    res.render('primos', dados('Exercício de Números Primos'));
 }
 
 function paginaSomatorio(req, res) {
-    const parametro = {
-        titulo: titulo,
-        botoes: botoes,
-        equipe: equipe,
-        subtitulo: 'Exercício de Somatório',
-    };
-    res.render('somatorio', parametro);
+    res.render('somatorio', dados('Exercício de Somatório'));
 }
 
 module.exports = {
