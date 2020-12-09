@@ -10,22 +10,25 @@ function contagem(numeroFinal) {
 
 
 function fibonacci(posicao) {
-	let primeiroTermo = 0, segundoTermo = 1, posicaoTermo;
-	if (posicao <= 0) {
-		posicaoTermo = "Por favor, insira um número acima de zero";
+	if (Number.isInteger(posicao) == true){
+		let primeiroTermo = 0, segundoTermo = 1, posicaoTermo;
+		if (posicao <= 0) {
+			posicaoTermo = "Por favor, insira um número acima de zero";
+		}
+		if (posicao == 1) {
+			posicaoTermo = '0';
+		}
+		if (posicao == 2) {
+			posicaoTermo = '1';
+		}
+		for (let i = 2; i < posicao; i++) {
+			posicaoTermo = primeiroTermo + segundoTermo;
+			primeiroTermo = segundoTermo;
+			segundoTermo = posicaoTermo;
+		}
+		return posicaoTermo;
 	}
-	if (posicao == 1) {
-		posicaoTermo = '0';
-	}
-	if (posicao == 2) {
-		posicaoTermo = '1';
-	}
-	for (let i = 2; i < posicao; i++) {
-		posicaoTermo = primeiroTermo + segundoTermo;
-		primeiroTermo = segundoTermo;
-		segundoTermo = posicaoTermo;
-	}
-	return posicaoTermo;
+	return "Por favor, insira um Número Inteiro";
 }
 
 
