@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
-const formatarVetor = require('./views/utilidades/formatarVetor')
+const formatarVetor = require('./views/utilidades/formatarVetor');
+const port = process.env.PORT || 5000;
 const {
     contagem,
     fibonacci,
@@ -161,8 +162,7 @@ app.post('/somatorio', function (req, res) {
     });
 });
 
-const port = process.env.PORT ? process.env.PORT:3002;
 
 app.listen(port, function () {
-    console.log(`App de Exemplo escutando na porta http://localhost:${port}/`);
+    console.log(`http://localhost:${port}/`);
 });
