@@ -29,32 +29,37 @@
             </div>
 
             <% botoes.map(botao => { %>
-                <div class="<%= botao.class %>">
-                    <div class="<%= botao.divClass %>">
-                        <a href="<%= botao.href %>">
-                            <p><%= botao.texto %></p>
-                        </a>
-                    </div>
-                </div>                
+            <div class="<%= botao.class %>">
+                <div class="<%= botao.divClass %>">
+                    <a href="<%= botao.href %>">
+                        <p><%= botao.texto %></p>
+                    </a>
+                </div>
+            </div>
             <% }) %>
         </div>
     </div>
+
     <div class="borda"></div>
 
     <%- body %>
 
     <div class="footer">
+        <div class="footesq">-</div>
         <div class="bloco-footer">
             <h2>Quem somos:</h2>
             <% equipe.map(membro => { %>
-                <div class="pessoal">
-                    <a href="<%= membro.site %>">
-                        <img class="foto-pessoa" src="<%= membro.src %>" alt="<%= membro.nome %>">
-                    </a>
-                    <p id="nome"><%= membro.nome %></p>
-                </div>
+            <div class="pessoal">
+                <a href="<%= membro.href %>">
+                    <img class="foto-pessoa" src="<%= membro.src %>" alt="<%= membro.nome %>">
+                </a>
+                <p id="nome"><%= membro.nome %></p>
+            </div>
             <% }) %>
         </div>
+        <div class="footdir">-</div>
+
+    </div>
     </div>
 
 </body>
