@@ -5,6 +5,7 @@ const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const formatarVetor = require('./views/utilidades/formatarVetor');
 const port = process.env.PORT || 5000;
+const { salvarOperacao } = require("./dados/base");
 const {
     contagem,
     fibonacci,
@@ -63,6 +64,10 @@ app.post('/contagem', function (req, res) {
         botoes: botoes,
         equipe: equipe
     });
+
+    if(contagemResultado){
+        salvarOperacao("Contagem", numeroFinal, contagemResultado);
+    }
 });
 
 app.post('/fibonacci', function (req, res) {
@@ -78,6 +83,10 @@ app.post('/fibonacci', function (req, res) {
         botoes: botoes,
         equipe: equipe
     });
+
+    if(fibonacciResultado){
+        salvarOperacao("Fibonacci", posicao, fibonacciResultado)
+    }
 });
 
 app.post('/mdc', function (req, res) {
@@ -95,6 +104,10 @@ app.post('/mdc', function (req, res) {
         botoes: botoes,
         equipe: equipe
     });
+
+    if(mdcResultado){
+        salvarOperacao("MDC", [primeiroNumero, segundoNumero], mdcResultado)
+    }
 });
 
 app.post('/ordenada', function (req, res) {
@@ -121,6 +134,10 @@ app.post('/ordenada', function (req, res) {
         botoes: botoes,
         equipe: equipe
     });
+
+    if(ordenadaResultado){
+        salvarOperacao("Ordenada", vetorEntrada, ordenadaResultado)
+    }
 });
 
 app.post('/primos', function (req, res) {
@@ -136,6 +153,10 @@ app.post('/primos', function (req, res) {
         botoes: botoes,
         equipe: equipe
     });
+
+    if(primosResultado){
+        salvarOperacao("Primos", numero, primosResultado)
+    }
 });
 
 app.post('/somatorio', function (req, res) {
@@ -160,6 +181,10 @@ app.post('/somatorio', function (req, res) {
         botoes: botoes,
         equipe: equipe
     });
+
+    if(somatorioResultado){
+        salvarOperacao("Somatório", vetorEntrada, somatorioResultado);
+    }
 });
 
 
