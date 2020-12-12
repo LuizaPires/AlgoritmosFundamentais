@@ -5,14 +5,14 @@
                 <%= subtitulo %>
             </p>
             <p class="resultado">
-                Mostrando o termo <%= operacao %> para a posição solicitada (<%= posicao %>): <%= fibonacci_resultado %>
+                Mostrando o termo <%= operacao %> para a posição solicitada (<%= posicao %>): <%= fibonacciResultado %>
             </p>
             <p class="formularioQ">
                 Informe a próxima posição para mostrar a Fibonacci.
             </p>
             <form method="POST" action="/fibonacci" autocomplete="off">
                 <input name="posicao" type="text" />
-                <button type="submit">Enviar</button>
+                <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
     </div>

@@ -5,14 +5,14 @@
                 <%= subtitulo %>
             </p>
             <p class="resultado">
-                A <%= operacao %> de 1 até <%= numf %> é <%= contagem_resultado %>
+                A <%= operacao %> de 1 até <%= numeroFinal %> é <%= contagemResultado %>
             </p>
             <p class="formularioQ">
                 Informe o próximo número para ser feito a contagem.
             </p>
             <form method="POST" action="/contagem" autocomplete="off">
-                <input name="numf" type="text" />
-                <button type="submit">Enviar</button>
+                <input name="numeroFinal" type="text" />
+                <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
     </div>

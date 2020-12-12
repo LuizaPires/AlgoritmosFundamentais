@@ -1,0 +1,27 @@
+<div class="apresentacao">
+    <div class="apres">
+        <div class="form">
+            <p class="formulariocab">
+                <%= subtitulo %>
+            </p>
+
+            <% if(ordenadaResultado) { %>
+                <p class="resultado">
+                    Vetor a ser ordenado: <%= vetorEntrada %> </br>Resultado da ordenação: <%= ordenadaResultado %>
+                </p>
+            <% } else { %>
+                <p class="resultado">
+                    Por favor, confira o seu vetor. Separe suas entradas com vírgulas.
+                </p> 
+            <% } %>
+
+            <p class="formularioQ">
+                Informe os próximos números para ordenar
+            </p>
+            <form method="POST" action="/ordenada" autocomplete="off">
+                <%- include("./elementos/inputVetor") %>
+                <%- include("./elementos/btnEnviar") %>
+            </form>
+        </div>
+    </div>
+</div>

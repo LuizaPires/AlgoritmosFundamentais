@@ -1,0 +1,29 @@
+<p class="tratamento"></p>
+<div class="apresentacao">
+    <div class="apres">
+        <div class="form">
+            <p class="formulariocab">
+                <%= subtitulo %>
+            </p>
+            
+            <% if(somatorioResultado) { %>
+                <p class="resultado">
+                    Vetor a ser somado: <%= vetorEntrada %>. </br>Resultado da soma: <%= somatorioResultado %>
+                </p>
+            <% } else { %>
+                <p class="resultado">
+                    Por favor, confira o seu vetor. Separe suas entradas com vírgulas.
+                </p> 
+            <% } %>
+
+            <p class="formularioQ">
+                Informe os próximos números para serem somados.
+            </p>
+            <form method="POST" action="/somatorio" autocomplete="off">
+                <%- include("./elementos/inputVetor") %>
+                <%- include("./elementos/btnEnviar") %>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="tratamento"></div>

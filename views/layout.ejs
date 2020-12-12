@@ -27,28 +27,39 @@
             <div class="comentarios">
                 <p class="comentario">Escolha a função que deseja utilizar</p>
             </div>
-            <%- include('./btn/home-btn'); %>
-            <%- include('./btn/contagem-btn'); %>
-            <%- include('./btn/fibonacci-btn'); %>
-            <%- include('./btn/mdc-btn'); %>
-            <%- include('./btn/ordenacao-btn'); %>
-            <%- include('./btn/primos-btn'); %>
-            <%- include('./btn/somatorio-btn'); %>
+
+            <% botoes.map(botao => { %>
+            <div class="<%= botao.class %>">
+                <div class="<%= botao.divClass %>">
+                    <a href="<%= botao.href %>">
+                        <p><%= botao.texto %></p>
+                    </a>
+                </div>
+            </div>
+            <% }) %>
         </div>
     </div>
+
     <div class="borda"></div>
 
     <%- body %>
 
     <div class="footer">
+        <div class="footesq">-</div>
         <div class="bloco-footer">
             <h2>Quem somos:</h2>
-            <%- include('./btn/luizapires')%>
-            <%- include('./btn/kevinguedes')%>
-            <%- include('./btn/sofiaoliveira')%>
-            <%- include('./btn/camilaalves')%>
-            <%- include('./btn/guilhermefederico')%>
+            <% equipe.map(membro => { %>
+            <div class="pessoal">
+                <a href="<%= membro.href %>">
+                    <img class="foto-pessoa" src="<%= membro.src %>" alt="<%= membro.nome %>">
+                </a>
+                <p id="nome"><%= membro.nome %></p>
+            </div>
+            <% }) %>
         </div>
+        <div class="footdir">-</div>
+
+    </div>
     </div>
 
 </body>

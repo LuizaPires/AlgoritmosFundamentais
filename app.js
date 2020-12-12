@@ -1,18 +1,20 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var expressLayouts = require('express-ejs-layouts');
-var app = express();
-var {
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
+const app = express();
+const formatarVetor = require('./views/utilidades/formatarVetor');
+const port = process.env.PORT || 5000;
+const { salvarOperacao } = require("./dados/base");
+const {
     contagem,
-	fibonacci,
-	mdc,
-	ordenada,
-	somatorio,
-	primos
+    fibonacci,
+    mdc,
+    ordenada,
+    somatorio,
+    primos
 } = require('./funcoes')
-
-var {
+const {
     paginaIndex,
     paginaContagem,
     paginaFibonacci,
@@ -21,9 +23,13 @@ var {
     paginaPrimos,
     paginaSomatorio
 } = require('./paginas')
+const {
+    botoes,
+    equipe,
+    titulo
+} = require('./views/utilidades/dados')
 
 
-//configura os dados oriundos da requisição http
 app
     .use(bodyParser.urlencoded({ extended: true }))
     .use(expressLayouts)
@@ -35,10 +41,6 @@ app
     .set('view engine', 'ejs')
     .set('views', path.join(__dirname, '/views'));
 
-
-
-
-
 app
     .get('/', paginaIndex)
     .get('/contagem', paginaContagem)
@@ -49,106 +51,143 @@ app
     .get('/somatorio', paginaSomatorio);
 
 
-
-
 app.post('/contagem', function (req, res) {
     var body = req.body;
-    var numi = parseFloat(body.numi);
-    var numf = parseFloat(body.numf);
-    var contagem_resultado = contagem(numi, numf);
-    res.render('contagem_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+    var numeroFinal = parseInt(body.numeroFinal);
+    var contagemResultado = contagem(numeroFinal);
+    res.render('contagemResultado', {
         subtitulo: 'Exercício de Contagem',
         operacao: 'contagem',
-        numi: numi,
-        numf: numf,
-        contagem_resultado: contagem_resultado
+        numeroFinal: numeroFinal,
+        contagemResultado: contagemResultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
+
+    if(contagemResultado){
+        salvarOperacao("Contagem", numeroFinal, contagemResultado);
+    }
 });
 
 app.post('/fibonacci', function (req, res) {
     var body = req.body;
     var posicao = parseFloat(body.posicao);
-    var fibonacci_resultado = fibonacci(posicao);
-    res.render('fibonacci_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+    var fibonacciResultado = fibonacci(posicao);
+    res.render('fibonacciResultado', {
         subtitulo: 'Exercício de Fibonacci',
         operacao: 'fibonacci',
         posicao: posicao,
-        fibonacci_resultado: fibonacci_resultado
+        fibonacciResultado: fibonacciResultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
+
+    if(fibonacciResultado){
+        salvarOperacao("Fibonacci", posicao, fibonacciResultado)
+    }
 });
 
 app.post('/mdc', function (req, res) {
     var body = req.body;
-    var num1 = parseFloat(body.num1);
-    var num2 = parseFloat(body.num2);
-    var mdc_resultado = mdc(num1, num2);
-    res.render('mdc_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+    var primeiroNumero = parseInt(body.primeiroNumero);
+    var segundoNumero = parseInt(body.segundoNumero);
+    var mdcResultado = mdc(primeiroNumero, segundoNumero);
+    res.render('mdcResultado', {
         subtitulo: 'Exercício de MDC',
         operacao: 'mdc',
-        num1: num1,
-        num2: num2,
-        mdc_resultado: mdc_resultado
+        primeiroNumero: primeiroNumero,
+        segundoNumero: segundoNumero,
+        mdcResultado: mdcResultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
+
+    if(mdcResultado){
+        salvarOperacao("MDC", [primeiroNumero, segundoNumero], mdcResultado)
+    }
 });
 
 app.post('/ordenada', function (req, res) {
     var body = req.body;
-    var s = parseFloat(body.s);
-    var t = parseFloat(body.t);
-    var u = parseFloat(body.u);
-    var v = parseFloat(body.v);
-    var x = parseFloat(body.x);
-    var z = parseFloat(body.z);
-    var ordenada_resultado = ordenada(s, t, u, v, x, z);
-    res.render('ordenada_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+    var vetorEntrada = body.vetorEntrada;
+    var ordenadaResultado;
+
+    vetorEntrada = formatarVetor.textoParaVetor(vetorEntrada);
+
+    if (formatarVetor.validarVetorNumerico(vetorEntrada)) {
+        ordenadaResultado = ordenada(vetorEntrada);
+    }
+    else {
+        ordenadaResultado = false;
+    }
+
+
+    res.render('ordenadaResultado', {
         subtitulo: 'Exercício de Ordenação',
         operacao: 'ordenada',
-        s: s,
-        t: t,
-        u: u,
-        v: v,
-        x: x,
-        z: z,
-        ordenada_resultado: ordenada_resultado
+        vetorEntrada: vetorEntrada,
+        ordenadaResultado: ordenadaResultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
+
+    if(ordenadaResultado){
+        salvarOperacao("Ordenada", vetorEntrada, ordenadaResultado)
+    }
 });
 
 app.post('/primos', function (req, res) {
     var body = req.body;
-    var num = parseFloat(body.num);
-    var primos_resultado = primos(num);
-    res.render('primos_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+    var numero = parseInt(body.numero);
+    var primosResultado = primos(numero);
+    res.render('primosResultado', {
         subtitulo: 'Exercício de Números Primos',
         operacao: 'primos',
-        num: num,
-        primos_resultado: primos_resultado
+        numero: numero,
+        primosResultado: primosResultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
+
+    if(primosResultado){
+        salvarOperacao("Primos", numero, primosResultado)
+    }
 });
 
 app.post('/somatorio', function (req, res) {
     var body = req.body;
-    var num1 = parseFloat(body.num1);
-    var num2 = parseFloat(body.num2);
-    var num3 = parseFloat(body.num3);
-    var somatorio_resultado = somatorio(num1, num2, num3);
-    res.render('somatorio_resultado', {
-        titulo: '/*----- Site de Algoritmos Fundamentais -----*/',
+    var somatorioResultado;
+    var vetorEntrada = body.vetorEntrada;
+    vetorEntrada = formatarVetor.textoParaVetor(vetorEntrada);
+
+    if (formatarVetor.validarVetorNumerico(vetorEntrada)) {
+        somatorioResultado = somatorio(vetorEntrada);
+    }
+    else {
+        somatorioResultado = false;
+    }
+
+    res.render('somatorioResultado', {
         subtitulo: 'Exercício de Somatório',
         operacao: 'somatorio',
-        num1: num1,
-        num2: num2,
-        num3: num3,
-        somatorio_resultado: somatorio_resultado
+        vetorEntrada: vetorEntrada,
+        somatorioResultado: somatorioResultado,
+        titulo: titulo,
+        botoes: botoes,
+        equipe: equipe
     });
+
+    if(somatorioResultado){
+        salvarOperacao("Somatório", vetorEntrada, somatorioResultado);
+    }
 });
 
-var port = 3001;
 
 app.listen(port, function () {
-    console.log(`App de Exemplo escutando na porta http://localhost:${port}/`);
+    console.log(`http://localhost:${port}/`);
 });

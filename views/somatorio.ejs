@@ -14,10 +14,8 @@
                 que sejam somados.
             </p>
             <form method="POST" action="/somatorio" autocomplete="off">
-                <input name="num1" type="text" />
-                <input name="num2" type="text" />
-                <input name="num3" type="text" />
-                <button type="submit">Enviar</button>
+                <%- include("./elementos/inputVetor") %>
+                <%- include("./elementos/btnEnviar") %>
             </form>
         </div>
     </div>
