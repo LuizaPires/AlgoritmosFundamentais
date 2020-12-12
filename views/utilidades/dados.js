@@ -55,7 +55,7 @@ const equipe = [
         nome: "Kevin Guedes"
     },
     {
-        href: "www.linkedin.com/in/sofia-oliveira-383b2117a",
+        href: "https://www.linkedin.com/in/sofia-oliveira-383b2117a",
         src: "img/perfil_Sofia (2).JPG",
         nome: "Sofia Oliveira"
     },
