@@ -1,4 +1,9 @@
-const {botoes, equipe, titulo} = require('./views/utilidades/dados')
+const {
+    botoes, 
+    equipe, 
+    titulo
+} = require('./views/utilidades/dados')
+
 const dados = (subtitulo) => {
     return {
         subtitulo: subtitulo,

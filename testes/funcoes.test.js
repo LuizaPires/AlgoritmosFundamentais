@@ -66,7 +66,7 @@ test('Ordenar o vetor inteiros', () => {
 
 //#region 
 // Teste - Somatório
-test('Somatorio números inteiros e positivos - 10, 89, 2, 103 e 44 é 248', () => {
+test('Somatorio números inteiros e positivos', () => {
     const entrada = [10,89,2,103,44]
     const esperado = 248
     const atual = somatorio(entrada)
@@ -74,7 +74,7 @@ test('Somatorio números inteiros e positivos - 10, 89, 2, 103 e 44 é 248', () 
     expect(atual).toBe(esperado)
 })
 
-test('Somatorio números inteiros e negativos - -1, -9, -25, -13 e -31 é -79', () => {
+test('Somatorio números inteiros e negativos', () => {
     const entrada = [-1,-9,-25,-13,-31]
     const esperado = -79
     const atual = somatorio(entrada)
@@ -82,7 +82,7 @@ test('Somatorio números inteiros e negativos - -1, -9, -25, -13 e -31 é -79', 
     expect(atual).toBe(esperado)
 })
 
-test('Somatorio números decimais e positivos - 10.5, 2.8, 1007.2, 5.1 e 204.5 é 1230.1', () => {
+test('Somatorio números decimais e positivos', () => {
     const entrada = [10.5,2.8,1007.2,5.1,204.5]
     const esperado = 1230.1
     const atual = somatorio(entrada)
@@ -90,7 +90,7 @@ test('Somatorio números decimais e positivos - 10.5, 2.8, 1007.2, 5.1 e 204.5 �
     expect(atual).toBe(esperado)
 })
 
-test('somatorio números decimais e negativos - -1.5, -28.2, -17.2, -12.7 e -20.5 é -80.1', () => {
+test('somatorio números decimais e negativos', () => {
     const entrada = [-1.5,-28.2,-17.2,-12.7,-20.5]
     const esperado = -80.1
     const atual = somatorio(entrada)
@@ -104,7 +104,7 @@ test('somatorio números decimais e negativos - -1.5, -28.2, -17.2, -12.7 e -20.
 test('Máximo divisor comum de 8 e 4 é 4', () => {
     const entrada = [8, 4]
     const esperado = 4
-    const atual = mdc(entarda[0], entrada[1])
+    const atual = mdc(entrada[0], entrada[1])
     
     expect(atual).toBe(esperado)
 })
@@ -112,7 +112,7 @@ test('Máximo divisor comum de 8 e 4 é 4', () => {
 test('Máximo divisor comum de -8 e -4 é -4', () => {
     const entrada = [8, -4]
     const esperado = 4
-    const atual = mdc(entarda[0], entrada[1])
+    const atual = mdc(entrada[0], entrada[1])
     
     expect(atual).toBe(esperado)
 })
@@ -123,15 +123,15 @@ test('Máximo divisor comum de -8 e -4 é -4', () => {
 test('fibonacci de 10', () => {
     const entrada = 10
     const esperado = 34
-    const atual = fibonacci(10)
+    const atual = fibonacci(entrada)
 
     expect(atual).toBe(esperado)
 })
 
 test('fibonacci de 10.5', () => {
-    const entrada = 10
+    const entrada = 10.5
     const esperado = "Por favor, insira um Número Inteiro"
-    const atual = fibonacci(10)
+    const atual = fibonacci(entrada)
 
     expect(atual).toBe(esperado)
 })
