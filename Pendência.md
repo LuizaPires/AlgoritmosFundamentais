@@ -1,5 +1,5 @@
 # Projeto da Disciplina de Ambientes de Desenvolvimento de Software
-
+![](/public/img/fibonacci.jpg)
 ## Equipe:
 - Kevin Santos Guedes
 - Luiza Pires
