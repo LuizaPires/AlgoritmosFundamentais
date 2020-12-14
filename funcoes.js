@@ -32,15 +32,26 @@ function fibonacci(posicao) {
 }
 
 
-function mdc(primeiroNumero, segundoNumero) {
-    let resto;
-    do {
-        resto = primeiroNumero % segundoNumero;
-        primeiroNumero = segundoNumero;
-        segundoNumero = resto;
-    } while (resto != 0);
-    return primeiroNumero;
-}
+const calcularMdc = (primeiroNumero, segundoNumero) => {
+    if (!segundoNumero) {
+        return primeiroNumero;
+    }
+    return calcularMdc(segundoNumero, primeiroNumero % segundoNumero);
+};
+
+const mdc = (primeiroNumero, segundoNumero) => {
+
+    if (primeiroNumero < 0) {
+        primeiroNumero = -primeiroNumero;
+    }
+
+    if (segundoNumero < 0) {
+        segundoNumero = -segundoNumero;
+    }
+
+    return calcularMdc(primeiroNumero, segundoNumero);
+};
+
 
 
 function ordenada(inputArray) {
