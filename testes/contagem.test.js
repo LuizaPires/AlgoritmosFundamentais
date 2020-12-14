@@ -1,4 +1,4 @@
-const func = require('./funcoes')
+const func = require('../funcoes')
 
 test('contagem de 10 é igual a 10', () => {
     const contagem = func.contagem(10);
